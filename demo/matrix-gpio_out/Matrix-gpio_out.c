@@ -11,8 +11,7 @@ int main(int argc, char ** argv)
     int i, value, board;
     int ret = -1;
 	
-	setGPIOValue(13, 1);
-	setGPIODirection(13, 2);
+	
 	
 	
 	
@@ -26,8 +25,10 @@ int main(int argc, char ** argv)
         return -1;
     }
     if (board == BOARD_NANOPC_T2)
-        pin = GPIO_PIN(15);
-    
+        // pin = GPIO_PIN(15);
+        setGPIOValue(13, 1);
+	    setGPIODirection(13, 2);
+	   
     if (argc == 2)
         pin = GPIO_PIN(atoi(argv[1]));
     if ((ret = exportGPIOPin(pin)) == -1) {   

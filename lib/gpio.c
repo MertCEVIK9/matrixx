@@ -42,7 +42,7 @@ int initPinGPIO(int board)
     }
     case BOARD_NANOPC_T2: {
         int tempPinGPIO[41] = {-1, -1,   -1, 116, 112, -1,  -1,  -1,  -1, -1, -1,
-                                  117,  113,  61,  60, 63,  62,  68,  71, 72, 88,
+                                  117,  113,  63,  60, 63,  62,  68,  71, 72, 88,
                                    92,   58,  97, 104, 77, 163,  78, 165, -1, -1,
                                    };
         memcpy(pinGPIO, tempPinGPIO, sizeof(pinGPIO));

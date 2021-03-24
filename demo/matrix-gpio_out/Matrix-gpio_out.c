@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include "libfahw.h"
 
-#define STATUS_CHANGE_TIMES     (5)
+#define STATUS_CHANGE_TIMES     (35)
 
 int main(int argc, char ** argv) 
 {
@@ -40,5 +40,5 @@ int main(int argc, char ** argv)
         sleep(1);
     }
     unexportGPIOPin(pin);
-    
+    return 0;
 }

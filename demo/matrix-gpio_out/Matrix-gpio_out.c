@@ -25,7 +25,7 @@ int main(int argc, char ** argv)
         return -1;
     }
     if (board == BOARD_NANOPC_T2)
-        // pin = GPIO_PIN(15);
+        
         setGPIOValue(13, 1);
 	    setGPIODirection(13, 2);
 	   

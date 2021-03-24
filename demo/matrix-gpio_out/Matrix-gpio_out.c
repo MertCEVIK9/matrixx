@@ -34,7 +34,7 @@ int main(int argc, char ** argv)
     if ((ret = setGPIODirection(pin, GPIO_OUT)) == -1) {
         printf("setGPIODirection(%d) failed\n", pin);
     } else {
-		
+		printf("oldu");
 		setGPIODirection(pin, GPIO_OUT);
 		
 	}

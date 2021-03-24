@@ -17,27 +17,16 @@ int main(int argc, char ** argv)
         return -1;
     }
     if (board == BOARD_NANOPC_T2)
-        pin = GPIO_PIN(13);
+        pin = GPIO_PIN(15);
     
     if (argc == 2)
         pin = GPIO_PIN(atoi(argv[1]));
     if ((ret = exportGPIOPin(pin)) == -1) {   
         printf("exportGPIOPin(%d) failed\n", pin);
-    } else {
-		exportGPIOPin(pin);
-		
-	}
-	  
-	
-	
-	
+    
     if ((ret = setGPIODirection(pin, GPIO_OUT)) == -1) {
         printf("setGPIODirection(%d) failed\n", pin);
-    } else {
-		printf("oldu");
-		setGPIODirection(pin, GPIO_OUT);
-		
-	}
+
 	
 	
     for (i = 0; i < STATUS_CHANGE_TIMES; i++) {

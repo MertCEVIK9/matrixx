@@ -15,7 +15,7 @@ int main(int argc, char ** argv)
         printf("Fail to init board\n");
         return -1;
     }
-    if (board == BOARD_NANOPI_2)
+    if (board == BOARD_NANOPC_T2)
         pin = GPIO_PIN(13);
     
     if (argc == 2)
@@ -40,5 +40,5 @@ int main(int argc, char ** argv)
         sleep(1);
     }
     unexportGPIOPin(pin);
-    return 0;
+    
 }

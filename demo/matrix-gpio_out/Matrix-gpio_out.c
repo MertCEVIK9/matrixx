@@ -7,7 +7,7 @@
 
 int main(int argc, char ** argv) 
 {
-    int pin = GPIO_PIN(13); 
+    int pin = GPIO_PIN(7); 
     int i, value, board;
     int ret = -1;
     
@@ -16,7 +16,7 @@ int main(int argc, char ** argv)
         return -1;
     }
     if (board == BOARD_NANOPC_T2 || board == BOARD_NANOPC_T3)
-        pin = GPIO_PIN(13);
+        pin = GPIO_PIN(15);
     
     if (argc == 2)
         pin = GPIO_PIN(atoi(argv[1]));

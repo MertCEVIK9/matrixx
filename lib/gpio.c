@@ -1,7 +1,7 @@
 #include "common.h"
 #include "libfahw-gpio.h"
 
-static int pinGPIO[41];
+static int pinGPIO[50];
 
 int initPinGPIO(int board)
 {
@@ -41,9 +41,9 @@ int initPinGPIO(int board)
         break;
     }
     case BOARD_NANOPC_T2: {
-        int tempPinGPIO[41] = {-1, -1,   -1, 116, 112, -1,  -1,  -1,  -1, -1, -1,
-                                  117,  113,  63,  63, 63,  62,  68,  71, 72, 88,
-                                   92,   58,  97, 104, 77, 163,  78, 165, -1, -1,
+        int tempPinGPIO[50] = {-1, -1,   -1, 116, 112, -1,  -1,  -1,  -1, -1, -1,
+                                  117,  113,  60,  60, 60,  62,  68,  71, 72, 88,
+                                   92,   58,  97, 104, 77, 163,  78, 165, -1, -1,-1,-1,-1,-1,-1,-1,-1,-1,-1
                                    };
         memcpy(pinGPIO, tempPinGPIO, sizeof(pinGPIO));
         ret = 0;

@@ -11,24 +11,14 @@ int main(int argc, char ** argv)
     int i, value, board;
     int ret = -1;
 	
-	
-	
-	
-	
-	
-	
-	
-	
     
     if ((board = boardInit()) < 0) {
         printf("Fail to init board\n");
         return -1;
     }
     if (board == BOARD_NANOPC_T2)
-        
-        setGPIOValue(13, 1);
-	    setGPIODirection(13, 2);
-	   
+        pin = GPIO_PIN(59);
+    
     if (argc == 2)
         pin = GPIO_PIN(atoi(argv[1]));
     if ((ret = exportGPIOPin(pin)) == -1) {   

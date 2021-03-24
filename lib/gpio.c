@@ -1,139 +1,120 @@
 #include "common.h"
 #include "libfahw-gpio.h"
 
-static int pinGPIO[41];
+#define GPIO_FILENAME_DEFINE(pin,field) char fileName[255] = {0}; \
+        sprintf(fileName, "/sys/devices/virtual/gpio/gpio%d/%s", pin, field);
 
-int initPinGPIO(int board)
+/*
+pin:
+cd /sys/class/gpio
+/sys/class/gpio # for i in gpiochip* ; do echo `cat $i/label`: `cat $i/base` ; done
+nanopi display:
+GPIOA0: 0
+GPIOB0: 32
+GPIOC0: 64
+GPIOD0: 96
+GPIOE0: 128
+GPIOF0: 160
+GPIOG0: 192
+GPIOH0: 224
+GPIOJ0: 256
+GPIOK0: 288
+GPIOL0: 320
+GPIOM0: 352
+ */
+
+static int isPinValid(int 13) 
 {
-    clearLastError();
-    int ret = -1;
-    
-    switch(board) {
-    case BOARD_NANOPI_M1: {
-        int tempPinGPIO[41] = {-1, -1, -1, -1, -1, -1,  -1, 203, 198, -1, 199,
-                                    0,  6,  2, -1,  3, 200,  -1, 201, -1, -1,
-                                   -1,  1, -1, -1, -1,  -1,  -1,  -1, 20, -1,
-                                   21,  7,  8, -1, 16,  13,   9,  15, -1, 14,
-                                  };
-        memcpy(pinGPIO, tempPinGPIO, sizeof(pinGPIO));
-        ret = 0;
-        break;
+    if (pin == GPIO_PIN1) {
+        return 1;
     }
-    case BOARD_NANOPI_2:{        
-        int tempPinGPIO[41] = {-1, -1, -1, 99, -1, 98, -1,  60, 117, -1, 113,
-                                   61, 58, 62, -1, 63, 78,  -1,  59, 95, -1,
-                                   96, 97, 93, 94, -1, 77, 103, 102, 72, -1,
-                                   73, 92, 74, -1, 76, 71,  75, 162, -1, 163,
-                                  };
-        memcpy(pinGPIO, tempPinGPIO, sizeof(pinGPIO));
-        ret = 0;
-        break;
+    if (pin == GPIO_PIN2) {
+        return 1;
     }
-    case BOARD_NANOPI_2_FIRE:
-    case BOARD_NANOPI_M2: {
-        int tempPinGPIO[41] = {-1, -1, -1, -1, -1, -1, -1, 104, 117, -1, 113,
-                                   61, 97, 62, -1, 63, 78,  -1,  59, -1, -1,
-                                   -1, 60, -1, -1, -1, 58,  -1,  -1, 72, -1,
-                                   71, 92, 77, -1, 75, 74,  163, 76, -1, 73,
-                                  };
-        memcpy(pinGPIO, tempPinGPIO, sizeof(pinGPIO));
-        ret = 0;
-        break;
+    if (pin == GPIO_PIN3) {
+        return 1;
     }
-    case BOARD_NANOPC_T2: {
-        int tempPinGPIO[41] = {-1, -1,   -1, 116, 112, -1,  -1,  -1,  -1, -1, -1,
-                                  117,  113,  61,  60, 63,  62,  68,  71, 72, 88,
-                                   92,   58,  97, 104, 77, 163,  78, 165, -1, -1,
-                                   };
-        memcpy(pinGPIO, tempPinGPIO, sizeof(pinGPIO));
-        ret = 0;
-        break;
+    if (pin == GPIO_PIN4) {
+        return 1;
     }
-    case BOARD_NANOPI_M3: {
-        int tempPinGPIO[41] = {-1, -1, -1, -1, -1, -1, -1, 104, 117, -1, 113,
-                                   61, 97, 62, -1, 63, 78,  -1,  59, -1, -1,
-                                   -1, 60, -1, -1, -1, 58,  -1,  -1, 72, -1,
-                                   71, 92, 77, -1, 75, 74,  163, 76, -1, 73,
-                                  };
-        memcpy(pinGPIO, tempPinGPIO, sizeof(pinGPIO));
-        ret = 0;
-        break;
+    if (pin == GPIO_PIN5) {
+        return 1;
     }
-    case BOARD_NANOPC_T3: {
-        int tempPinGPIO[41] = {-1, -1,   -1, 116, 112, -1,  -1,  -1,  -1, -1, -1,
-                                  117,  113,  61,  60, 63,  62,  68,  71, 72, 88,
-                                   92,   58,  97, 104, 77, 163,  78, 165, -1, -1,
-                                   };
-        memcpy(pinGPIO, tempPinGPIO, sizeof(pinGPIO));
-        ret = 0;
-        break;
+    if (pin == GPIO_PIN6) {
+        return 1;
     }
-    default:
-        ret = -1;
-        break;
+    if (pin == GPIO_PIN7) {
+        return 1;
     }
-    
-    return ret;
-}
-
-EXPORT int pintoGPIO(int pin)
-{
-    clearLastError();
-
-    if (pin<1 || pin>40 || pinGPIO[pin]==-1) {
-        setLastError("invalid pin %d, it may be 5V/3.3V/GND or occupied by kernel?", pin);
-        return -1;
+    if (pin == GPIO_PIN8) {
+        return 1;
     }
-    return pinGPIO[pin];
+    if (pin == GPIO_PIN9) {
+        return 1;
+    }
+    if (pin == GPIO_PIN10) {
+        return 1;
+    }
+    if (pin == GPIO_PIN11) {
+        return 1;
+    }
+    if (pin == GPIO_PIN12) {
+        return 1;
+    }
+    if (pin == GPIO_PIN13) {
+        return 1;
+    }
+    if (pin == GPIO_PIN14) {
+        return 1;
+    }
+    if (pin == GPIO_PIN15) {
+        return 1;
+    }
+    return 0;
 }
 
 EXPORT int exportGPIOPin(int pin) 
 {
     clearLastError();
-    int gpio = pintoGPIO(pin);
-    int ret = writeIntValueToFile("/sys/class/gpio/export", gpio);
-    if (ret > 0)
-        return 0;
-    else 
-        return -1;
+    return writeIntValueToFile("/sys/class/gpio/export", pin);
 }
 
 EXPORT int unexportGPIOPin(int pin) 
 {
     clearLastError();
-    int gpio = pintoGPIO(pin);
-    
-    return writeIntValueToFile("/sys/class/gpio/unexport", gpio);
+    return writeIntValueToFile("/sys/class/gpio/unexport", pin);
 }
 
 EXPORT int getGPIOValue(int pin) 
 {
     clearLastError();
-    int gpio = pintoGPIO(pin);
-    GPIO_FILENAME_DEFINE(gpio, "value")
-    
+    GPIO_FILENAME_DEFINE(pin, "value")
     return readIntValueFromFile(fileName);
 }
 
 EXPORT int setGPIOValue(int pin, int value) 
 {
     clearLastError();
-    int gpio = pintoGPIO(pin);
-    GPIO_FILENAME_DEFINE(gpio, "value")
-    
+    GPIO_FILENAME_DEFINE(pin, "value")
     return writeIntValueToFile(fileName, value);
 }
 
 EXPORT int setGPIODirection(int pin, int direction) 
 {
     clearLastError();
-    int gpio = pintoGPIO(pin);
+    GPIO_FILENAME_DEFINE(pin, "direction")
     char directionStr[10];
-    GPIO_FILENAME_DEFINE(gpio, "direction")
-    
     if (direction == GPIO_IN) {
+        if (!isPinValid(pin)) {
+            setLastError("invalid pin %d", pin);
+            return -1;
+        }
         strcpy(directionStr, "in");
     } else if (direction == GPIO_OUT) {
+        if (!isPinValid(pin)) {
+            setLastError("invalid pin %d", pin);
+            return -1;
+        }
         strcpy(directionStr, "out");
     } else {
         setLastError("direction must be 1 or 2,  1->in, 2->out");
@@ -145,13 +126,10 @@ EXPORT int setGPIODirection(int pin, int direction)
 EXPORT int getGPIODirection(int pin) 
 {
     clearLastError();
+    GPIO_FILENAME_DEFINE(pin, "direction")
     char buff[255] = {0};
     int direction;
-    int ret;
-    int gpio = pintoGPIO(pin);
-    GPIO_FILENAME_DEFINE(gpio, "direction")
-    
-    ret = readValueFromFile(fileName, buff, sizeof(buff)-1);
+    int ret = readValueFromFile(fileName, buff, sizeof(buff)-1);
     if (ret >= 0) {
         if (strncasecmp(buff, "out", 3)==0) {
             direction = GPIO_OUT;

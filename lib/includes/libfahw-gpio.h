@@ -10,7 +10,7 @@
 #define GPIO_HIGH               (1)
 
 //nanopi
-#define GPIO_PIN(13)             (13)
+#define GPIO_PIN(x)             (x)
 
 #define PWM0       (96 + 1)  // GPIOD1
 #define PWM1       (64 + 13) // GPIOC13

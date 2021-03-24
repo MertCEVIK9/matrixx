@@ -3,11 +3,11 @@
 #include <unistd.h>
 #include "libfahw.h"
 
-#define STATUS_CHANGE_TIMES     (15)
+#define STATUS_CHANGE_TIMES     (5)
 
 int main(int argc, char ** argv) 
 {
-    int pin = GPIO_PIN(7); 
+    //int pin = GPIO_PIN(7); 
     int i, value, board;
     int ret = -1;
     

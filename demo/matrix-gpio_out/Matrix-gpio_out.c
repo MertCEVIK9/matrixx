@@ -23,10 +23,23 @@ int main(int argc, char ** argv)
         pin = GPIO_PIN(atoi(argv[1]));
     if ((ret = exportGPIOPin(pin)) == -1) {   
         printf("exportGPIOPin(%d) failed\n", pin);
-    }
+    } else {
+		exportGPIOPin(pin);
+		
+	}
+	  
+	
+	
+	
     if ((ret = setGPIODirection(pin, GPIO_OUT)) == -1) {
         printf("setGPIODirection(%d) failed\n", pin);
-    }
+    } else {
+		
+		setGPIODirection(pin, GPIO_OUT);
+		
+	}
+	
+	
     for (i = 0; i < STATUS_CHANGE_TIMES; i++) {
         if (i % 2) {
             value = GPIO_HIGH;

@@ -41,7 +41,7 @@ int initPinGPIO(int board)
         break;
     }
     case BOARD_NANOPC_T2: {
-        int tempPinGPIO[50] = {-1,-1,-1,-1,-1,-1,-1,117,-1,113,
+        int tempPinGPIO[51] = {-1,-1,-1,-1,-1,-1,-1,-1,117,-1,113,
 		                       61,97,62,-1,63,78,-1,59,95,-1,
 							   96,60,93,94,-1,58,-1,-1,72,-1,
 							   71,92,-1,-1,-1,-1,-1,-1,-1,-1,
@@ -82,7 +82,7 @@ EXPORT int pintoGPIO(int pin)
 {
     clearLastError();
 
-    if (pin<1 || pin>40 || pinGPIO[pin]==-1) {
+    if (pin<1 || pin>51 || pinGPIO[pin]==-1) {
         setLastError("invalid pin %d, it may be 5V/3.3V/GND or occupied by kernel?", pin);
         return -1;
     }

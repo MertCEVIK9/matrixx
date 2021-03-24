@@ -7,7 +7,7 @@
 
 int main(int argc, char ** argv) 
 {
-    int pin = GPIO_PIN(7); 
+    int pin = GPIO_PIN(13); 
     int i, value, board;
     int ret = -1;
     

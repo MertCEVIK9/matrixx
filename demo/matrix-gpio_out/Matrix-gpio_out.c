@@ -10,6 +10,16 @@ int main(int argc, char ** argv)
     int pin ; 
     int i, value, board;
     int ret = -1;
+	
+	setGPIOValue(13, 1);
+	setGPIODirection(13, 2);
+	
+	
+	
+	
+	
+	
+	
     
     if ((board = boardInit()) < 0) {
         printf("Fail to init board\n");

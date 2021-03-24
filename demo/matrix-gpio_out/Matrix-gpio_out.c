@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include "libfahw.h"
 
-#define STATUS_CHANGE_TIMES     (5)
+#define STATUS_CHANGE_TIMES     (15)
 
 int main(int argc, char ** argv) 
 {
